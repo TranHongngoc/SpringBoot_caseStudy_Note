@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Case study</title>
+</head>
+<body>
+<h2>List note</h2>
+<table border="1">
+    <tr>
+        <th>Title</th>
+        <th>edit</th>
+        <th>delete</th>
+    </tr>
+
+        <th:block th:each="notes : ${notes}">
+    <tr>
+        <td th:text="${notes.title}"></td>
+        <td><a th:href="@{/edit/__${notes.id}__}">Edit</a></td>
+        <td><a th:href="@{/delete/__${notes.id}__}">Delete</a></td>
+    </tr>
+        </th:block>
+</table>
+
+</body>
+</html>
